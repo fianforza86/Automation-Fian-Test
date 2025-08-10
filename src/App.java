@@ -9,11 +9,11 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         // Setup opsi Chrome agar kompatibel di GitHub Actions (headless mode)
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new"); // Headless versi baru
-        options.addArguments("--no-sandbox");   // Hindari error sandbox di container
-        options.addArguments("--disable-dev-shm-usage"); // Hindari limit memori
-        options.addArguments("--remote-allow-origins=*"); // Untuk menghindari beberapa error Chrome terbaru
-
+        if (System.getenv("CI") != null) {
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+        }
         // Inisialisasi driver dengan opsi
         WebDriver driver = new ChromeDriver(options);
 
@@ -28,6 +28,7 @@ public class App {
         for (WebElement option : optionsList) {
             if (option.getText().equalsIgnoreCase("Indonesia")) {
                 option.click();
+                System.out.println("Berhasil memilih: Indonesia");
                 break;
             }
         }
@@ -36,3 +37,5 @@ public class App {
         driver.quit();
     }
 }
+
+
