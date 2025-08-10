@@ -5,40 +5,36 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 13 * * *'  # Setiap hari jam 20:00 WIB (13:00 UTC)
+    - cron: '0 13 * * *' # Setiap hari jam 20:00 WIB (13:00 UTC)
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2. Setup Java 17
       - name: Set up Java 17
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
           distribution: 'temurin'
+          java-version: '17'
 
-      - name: Install Chrome & ChromeDriver
+      # 3. Setup Chrome untuk Selenium
+      - name: Install Chrome
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget unzip xvfb
-          sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
-          sudo rm google-chrome-stable_current_amd64.deb
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-          CHROMEDRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json" | grep -A 20 $CHROME_VERSION | grep "linux64" | grep "chromedriver" | grep -o 'https://[^"]*')
-          wget -O chromedriver.zip "$CHROMEDRIVER_VERSION"
-          unzip chromedriver.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
-          sudo chmod +x /usr/local/bin/chromedriver
+          sudo apt-get install -y google-chrome-stable
 
+      # 4. Compile Java files
       - name: Compile Java files
         run: |
           mkdir -p bin
           javac -cp "lib/*" -d bin src/*.java
 
+      # 5. Jalankan automation test
       - name: Run Automation Test
         run: java -cp "lib/*:bin" App
