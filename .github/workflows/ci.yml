@@ -17,11 +17,11 @@ jobs:
         uses: actions/checkout@v3
 
       # 2. Setup Java 17
-      - name: Set up Java 17
+      - name: Set up Java 21
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '21'
 
       # 3. Setup Chrome untuk Selenium
       - name: Install Chrome
