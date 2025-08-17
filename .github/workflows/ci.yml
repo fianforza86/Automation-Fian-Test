@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 13 * * *' # Setiap hari jam 20:00 WIB (13:00 UTC)
+    - cron: '0 */2 * * *' #Jalan tiap 2 jam sekali (UTC)
 
 jobs:
   build:
@@ -45,3 +45,12 @@ jobs:
         with:
          name: allure-report
          path: target/allure-report
+
+      # 7. Deploy Allure Report ke GitHub Pages
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/allure-report
+
+        
