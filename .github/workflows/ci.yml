@@ -29,12 +29,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
-      # 4. Compile Java files
-      - name: Compile Java files
-        run: |
-          mkdir -p bin
-          javac -cp "lib/*" -d bin src/*.java
-
-      # 5. Jalankan automation test
-      - name: Run Automation Test
-        run: java -cp "lib/*:bin" App
+      # 4. Build dan test Maven project
+      - name: Build and Test with Maven
+        run: mvn clean verify
