@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","15264","Memilih Indonesia dari dropdown autocomplete","Surefire suite","Mon Aug 18 04:38:07 UTC 2025","passed","Mon Aug 18 04:38:23 UTC 2025","com.example.AppTest","Surefire test","com.example.AppTest","testSelectCountry"
+"","33809","Memilih Indonesia dari dropdown autocomplete","Surefire suite","Mon Aug 18 06:32:40 UTC 2025","passed","Mon Aug 18 06:33:14 UTC 2025","com.example.AppTest","Surefire test","com.example.AppTest","testSelectCountry"
