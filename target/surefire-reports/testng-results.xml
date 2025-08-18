@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-17T17:54:31 WIB" name="Surefire suite" finished-at="2025-08-17T17:54:46 WIB" duration-ms="14779">
+  <suite started-at="2025-08-17T21:54:49 WIB" name="Surefire suite" finished-at="2025-08-17T21:55:03 WIB" duration-ms="13561">
     <groups>
     </groups>
-    <test started-at="2025-08-17T17:54:31 WIB" name="Surefire test" finished-at="2025-08-17T17:54:46 WIB" duration-ms="14779">
+    <test started-at="2025-08-17T21:54:49 WIB" name="Surefire test" finished-at="2025-08-17T21:55:03 WIB" duration-ms="13561">
       <class name="com.example.AppTest">
-        <test-method signature="testSelectCountry()[pri:0, instance:com.example.AppTest@bae7dc0]" started-at="2025-08-17T17:54:31 WIB" name="testSelectCountry" description="Memilih Indonesia dari dropdown autocomplete" finished-at="2025-08-17T17:54:46 WIB" duration-ms="14690" status="PASS">
+        <test-method signature="testSelectCountry()[pri:0, instance:com.example.AppTest@bae7dc0]" started-at="2025-08-17T21:54:49 WIB" name="testSelectCountry" description="Memilih Indonesia dari dropdown autocomplete" finished-at="2025-08-17T21:55:03 WIB" duration-ms="13471" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSelectCountry -->
